@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en" style="color-scheme: dark;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>You're Invited — Sean's 12th Birthday</title>
+  <meta name="description" content="Manga-style soccer birthday invitation for Sean's 12th birthday.">
+  <meta name="theme-color" content="#0A0F2C">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self';">
+  <link rel="preload" href="/assets/fonts/bangers.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="stage">
+    <div class="card-frame" id="cardFrame">
+      <article class="card" id="card" aria-label="Birthday invitation card">
+
+        <!-- Panel 1: guest avatar -->
+        <div class="panel panel--avatar">
+          <button type="button" class="avatar-btn" id="avatarBtn" aria-label="Change guest photo">
+            <img id="avatarImg" src="assets/avatar-default.webp" alt="Guest avatar" width="324" height="478" draggable="false">
+            <span class="tone tone--soft" aria-hidden="true"></span>
+            <span class="hint hint--avatar no-export" aria-hidden="true">
+              <svg class="hint__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 8 h3.2 L8.8 5.5 h6.4 L16.8 8 H20 a2 2 0 0 1 2 2 v9 a2 2 0 0 1 -2 2 H4 a2 2 0 0 1 -2 -2 v-9 a2 2 0 0 1 2 -2 z" fill="#0A0F2C" stroke="#fff" stroke-width="2.2" stroke-linejoin="miter"/>
+                <line x1="18" y1="10" x2="19.5" y2="10" stroke="#5FD4FF" stroke-width="2" stroke-linecap="square"/>
+                <circle cx="12" cy="14" r="4.8" fill="none" stroke="#5FD4FF" stroke-width="2.2"/>
+                <line x1="12" y1="8" x2="12" y2="9.2" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="12" y1="18.8" x2="12" y2="20" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="6" y1="14" x2="7.2" y2="14" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="16.8" y1="14" x2="18" y2="14" stroke="#5FD4FF" stroke-width="2"/>
+                <circle cx="12" cy="14" r="2" fill="#FFD400"/>
+              </svg>
+              <span>Change Photo</span>
+            </span>
+          </button>
+          <span class="caption caption--vip" id="vipCaption" aria-hidden="true">VIP GUEST</span>
+        </div>
+
+        <!-- Panel 2: speech bubble with guest name -->
+        <div class="panel panel--bubble">
+          <svg class="speedlines" id="bubbleLines" viewBox="0 0 352 462" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <span class="tone" aria-hidden="true"></span>
+          <div class="bubble">
+            <svg class="bubble__shape" viewBox="0 0 320 260" preserveAspectRatio="none" aria-hidden="true">
+              <path fill="#FFFFFF" stroke="#0A0F2C" stroke-width="6.5" stroke-linejoin="miter" d="M160 8 L184 40 L222 14 L230 54 L276 40 L262 80 L310 90 L278 120 L314 150 L270 162 L290 204 L244 196 L240 244 L204 214 L180 252 L158 214 L128 250 L118 210 L78 232 L84 192 L30 200 L52 164 L6 150 L46 122 L4 94 L54 84 L40 40 L88 54 L96 12 L132 40 Z"/>
+            </svg>
+            <button type="button" class="bubble__btn" id="nameBtn" aria-label="Edit guest name">
+              <span class="bubble__hey" id="heyText">HEY</span>
+              <span class="bubble__name" id="nameText">GUY!</span>
+            </button>
+            <input class="bubble__input" id="nameInput" name="guestName" type="text" maxlength="28" autocomplete="off"
+                   spellcheck="false" aria-label="Guest name" placeholder="SPACE TO CLEAR…" hidden>
+          </div>
+          <span class="hint hint--name no-export" aria-hidden="true">
+            <svg class="hint__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.5 3.5 L20.5 9.5 L8.5 21.5 H2.5 V15.5 Z" fill="#0A0F2C" stroke="#fff" stroke-width="2.2" stroke-linejoin="miter"/>
+              <line x1="12.5" y1="5.5" x2="18.5" y2="11.5" stroke="#5FD4FF" stroke-width="2.2" stroke-linecap="square"/>
+              <line x1="2.5" y1="21.5" x2="7" y2="17" stroke="#5FD4FF" stroke-width="2" stroke-linecap="square"/>
+              <circle cx="8" cy="16" r="1.4" fill="#5FD4FF"/>
+              <polygon points="2.5,21.5 5.5,21.5 2.5,18.5" fill="#FFD400"/>
+              <line x1="19" y1="3" x2="21.5" y2="5.5" stroke="#FFD400" stroke-width="2.2" stroke-linecap="square"/>
+            </svg>
+            <span>Edit Name</span>
+          </span>
+        </div>
+
+        <!-- Panel 3: ego eye close-up (interactive toggle) -->
+        <div class="panel panel--eye">
+          <button type="button" class="eye-btn" id="eyeBtn" aria-pressed="true" aria-label="Toggle Egoist Mode, currently ON">
+            <img id="eyeImg" src="assets/eye-panel.webp" alt="" width="296" height="372" draggable="false">
+            <span class="hint hint--eye no-export" aria-hidden="true">
+              <svg class="hint__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="12,3 21,12 12,21 3,12" fill="#0A0F2C" stroke="#fff" stroke-width="2.2" stroke-linejoin="miter"/>
+                <circle cx="12" cy="12" r="5.5" fill="none" stroke="#5FD4FF" stroke-width="2.2"/>
+                <circle cx="12" cy="12" r="2.2" fill="#FFD400"/>
+                <line x1="12" y1="2" x2="12" y2="5" stroke="#5FD4FF" stroke-width="2.2"/>
+                <line x1="12" y1="19" x2="12" y2="22" stroke="#5FD4FF" stroke-width="2.2"/>
+                <line x1="2" y1="12" x2="5" y2="12" stroke="#5FD4FF" stroke-width="2.2"/>
+                <line x1="19" y1="12" x2="22" y2="12" stroke="#5FD4FF" stroke-width="2.2"/>
+              </svg>
+              <span id="eyeHintText">Seal Ego</span>
+            </span>
+          </button>
+          <span class="caption caption--ego" id="egoCaption" aria-hidden="true">
+            <span class="ego-label" id="egoLabel">EGOIST:</span> <span class="ego-val ego-val--on" id="egoVal">ON</span>
+          </span>
+        </div>
+
+        <!-- Panel 4: main action panel -->
+        <div class="panel panel--main">
+          <img class="hero" id="heroImg" src="assets/sean-hero.webp" alt="Sean in jersey 67 striking the ball" width="1130" height="1513" draggable="false">
+          <span class="title-shade" aria-hidden="true"></span>
+          <svg class="speedlines speedlines--main" id="mainLines" viewBox="0 0 1008 1190" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <span class="tone tone--main" aria-hidden="true"></span>
+
+          <span class="sfx sfx--vertical sfx--rumble" id="sfxRumble" aria-hidden="true">ゴゴゴ</span>
+          <span class="sfx sfx--impact" id="sfxImpact" aria-hidden="true">ドンッ!</span>
+
+          <h1 class="title" id="titleBlock">
+            <span class="title__lead" id="titleLead">You're invited to</span>
+            <span class="title__name" id="titleName">Sean's</span>
+            <span class="title__age" id="titleAge"><span id="titleAgeNum">12</span><sup id="titleAgeSup">TH</sup></span>
+            <span class="title__event" id="titleEvent">Birthday!</span>
+            <svg class="title__brush" viewBox="0 0 450 40" preserveAspectRatio="none" aria-hidden="true">
+              <path fill="#FFD400" stroke="#0A0F2C" stroke-width="3" d="M8 28 C100 14 240 10 445 6 L442 20 C320 24 160 30 18 36 Z"/>
+            </svg>
+          </h1>
+
+          <ul class="info">
+            <!-- 1. Match Day (Calendar with Blue Lock pentagon glyph) -->
+            <li class="info__item">
+              <svg class="info__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="3,5 21,5 21,21 3,21" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="miter"/>
+                <line x1="7" y1="2" x2="7" y2="5" stroke="#5FD4FF" stroke-width="2.4" stroke-linecap="square"/>
+                <line x1="17" y1="2" x2="17" y2="5" stroke="#5FD4FF" stroke-width="2.4" stroke-linecap="square"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke="#5FD4FF" stroke-width="1.8"/>
+                <polygon points="12,12.5 15.5,15 14,19 10,19 8.5,15" fill="#5FD4FF" stroke="#fff" stroke-width="1" stroke-linejoin="miter"/>
+              </svg>
+              <span id="infoDateText">NOV 11, 2026</span>
+            </li>
+
+            <!-- 2. Kickoff Time (Ego Stopwatch with crosshair ticks) -->
+            <li class="info__item">
+              <svg class="info__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 2h4M12 2v2.5" stroke="#5FD4FF" stroke-width="2.2" stroke-linecap="square"/>
+                <circle cx="12" cy="14" r="7.5" fill="none" stroke="#fff" stroke-width="2.2"/>
+                <line x1="12" y1="8" x2="12" y2="9.5" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="12" y1="18.5" x2="12" y2="20" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="6" y1="14" x2="7.5" y2="14" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="16.5" y1="14" x2="18" y2="14" stroke="#5FD4FF" stroke-width="2"/>
+                <circle cx="12" cy="14" r="1.5" fill="#FFD400"/>
+                <path d="M12 14v-4M12 14l2.5-3" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+              <span id="infoTimeText">01:00 PM</span>
+            </li>
+
+            <!-- 3. Comms / Direct Hotline (Manga transmitter with signal bursts) -->
+            <li class="info__item">
+              <svg class="info__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19.5 16.2v2.8a1.5 1.5 0 0 1-1.6 1.5 15.5 15.5 0 0 1-6.8-2.6 15.2 15.2 0 0 1-4.7-4.7 15.5 15.5 0 0 1-2.6-6.8A1.5 1.5 0 0 1 5.3 4.8h2.8a1.5 1.5 0 0 1 1.5 1.3 9.8 9.8 0 0 0 .6 2.2 1.5 1.5 0 0 1-.3 1.5L8.7 11a12.5 12.5 0 0 0 4.8 4.8l1.2-1.2a1.5 1.5 0 0 1 1.5-.3 9.8 9.8 0 0 0 2.2.6 1.5 1.5 0 0 1 1.1 1.3z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="miter"/>
+                <path d="M15 3.5a6.5 6.5 0 0 1 6 6" stroke="#5FD4FF" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                <path d="M14.5 7a3 3 0 0 1 2.5 2.5" stroke="#FFD400" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </svg>
+              <a href="tel:+11234567222" class="info__link" id="infoPhoneLink" aria-label="Call (123) 456 7ABC"><span id="infoPhoneText">(123) 456 7ABC</span></a>
+            </li>
+
+            <!-- 4. Goal Location (Spatial Awareness Target Reticle Pin) -->
+            <li class="info__item">
+              <svg class="info__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="9.5" r="6.5" fill="none" stroke="#fff" stroke-width="2.2"/>
+                <line x1="12" y1="3" x2="12" y2="5.5" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="5.5" y1="9.5" x2="8" y2="9.5" stroke="#5FD4FF" stroke-width="2"/>
+                <line x1="16" y1="9.5" x2="18.5" y2="9.5" stroke="#5FD4FF" stroke-width="2"/>
+                <circle cx="12" cy="9.5" r="2.2" fill="#FFD400" stroke="#0A0F2C" stroke-width="1"/>
+                <polygon points="12,22 8,14.5 16,14.5" fill="#5FD4FF" stroke="#fff" stroke-width="1.8" stroke-linejoin="miter"/>
+              </svg>
+              <a href="https://maps.google.com/?q=Central+Park+NY" target="_blank" rel="noopener noreferrer" class="info__link" id="infoLocationLink" aria-label="Location: Central Park (NY) on Google Maps"><span id="infoLocationText">CENTRAL PARK (NY)</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Ink panel borders drawn on top of all panels (slanted main divider) -->
+        <svg class="frames" viewBox="0 0 1080 1620" aria-hidden="true">
+          <polygon fill="none" stroke="#0A0F2C" stroke-width="9" stroke-linejoin="miter" points="36,36 360,36 360,464 36,512"/>
+          <polygon fill="none" stroke="#0A0F2C" stroke-width="9" stroke-linejoin="miter" points="378,36 730,36 730,409 378,461"/>
+          <polygon fill="none" stroke="#0A0F2C" stroke-width="9" stroke-linejoin="miter" points="748,36 1044,36 1044,362 748,406"/>
+          <polygon fill="none" stroke="#0A0F2C" stroke-width="9" stroke-linejoin="miter" points="36,530 1044,380 1044,1564 36,1564"/>
+        </svg>
+
+        <footer class="folio" aria-hidden="true">
+          <span id="folioLeft">CH.12 — BIRTHDAY ARC</span>
+          <span id="folioRight">BLUE LOCK · EDITION</span>
+        </footer>
+      </article>
+    </div>
+
+    <section class="controls no-export" aria-label="Invitation controls">
+      <p class="controls__hint">Tap avatar, name, or eye panel to customize.</p>
+      <div class="controls__row">
+        <button type="button" class="btn btn--accent" id="customizeBtn">Customize</button>
+        <button type="button" class="btn btn--primary" id="downloadBtn">Download PNG</button>
+        <button type="button" class="btn btn--action" id="clearNameBtn">Clear Name</button>
+        <button type="button" class="btn" id="resetBtn">Reset to Default</button>
+      </div>
+      <div class="app-version" aria-label="Version">v20261110-1541</div>
+    </section>
+
+    <input type="file" id="avatarInput" accept="image/*" hidden>
+    <input type="file" id="eyeInput" accept="image/*" hidden>
+    <input type="file" id="heroInput" accept="image/*" hidden>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Customize Modal (Comprehensive Card Personalizer) -->
+    <div class="modal no-export" id="customizeModal" role="dialog" aria-modal="true" aria-labelledby="customTitle" hidden>
+      <div class="modal__backdrop" id="customBackdrop"></div>
+      <div class="modal__dialog modal__dialog--wide">
+        <div class="modal__header">
+          <h2 class="modal__title" id="customTitle">CUSTOMIZE INVITATION</h2>
+          <button type="button" class="modal__close" id="customCloseBtn" aria-label="Close">&times;</button>
+        </div>
+
+        <form class="custom-form" id="customForm" autocomplete="off" onsubmit="return false;">
+          <!-- Section 1: Guest & Greeting -->
+          <fieldset class="custom-group">
+            <legend class="custom-group__title">1. Guest & Greeting</legend>
+            <div class="form-grid">
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpGuestName">Guest Name</label>
+                  <span class="char-count" id="countName">0/28</span>
+                </div>
+                <input class="form-input" id="inpGuestName" type="text" maxlength="28" placeholder="e.g. GUY">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpHeyText">Speech Bubble Greeting</label>
+                  <span class="char-count" id="countHey">0/12</span>
+                </div>
+                <input class="form-input" id="inpHeyText" type="text" maxlength="12" placeholder="e.g. HEY">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpVipText">Guest Badge Caption</label>
+                  <span class="char-count" id="countVip">0/16</span>
+                </div>
+                <input class="form-input" id="inpVipText" type="text" maxlength="16" placeholder="e.g. VIP GUEST">
+              </div>
+              <div class="form-field">
+                <span class="form-field__label">Guest Avatar Photo</span>
+                <div class="form-file-row">
+                  <button type="button" class="btn btn--small" id="pickAvatarBtn">Change Photo</button>
+                  <button type="button" class="btn btn--small btn--ghost" id="restoreAvatarBtn">Restore Default</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Section 2: Egoist Eye Panel -->
+          <fieldset class="custom-group">
+            <legend class="custom-group__title">2. Egoist Eye Panel</legend>
+            <div class="form-grid">
+              <div class="form-field form-field--toggle">
+                <label class="toggle-label" for="toggleEgoMode">
+                  <input type="checkbox" id="toggleEgoMode" class="toggle-input">
+                  <span class="toggle-slider"></span>
+                  <span class="toggle-text">Egoist Mode Awakened (ON)</span>
+                </label>
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpEgoLabel">Egoist Label</label>
+                  <span class="char-count" id="countEgoLabel">0/10</span>
+                </div>
+                <input class="form-input" id="inpEgoLabel" type="text" maxlength="10" placeholder="e.g. EGOIST:">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpEgoOnText">ON State Text</label>
+                  <span class="char-count" id="countEgoOn">0/8</span>
+                </div>
+                <input class="form-input" id="inpEgoOnText" type="text" maxlength="8" placeholder="e.g. ON">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpEgoOffText">OFF State Text</label>
+                  <span class="char-count" id="countEgoOff">0/8</span>
+                </div>
+                <input class="form-input" id="inpEgoOffText" type="text" maxlength="8" placeholder="e.g. OFF">
+              </div>
+              <div class="form-field form-field--span2">
+                <span class="form-field__label">Custom Eye Panel Image</span>
+                <div class="form-file-row">
+                  <button type="button" class="btn btn--small" id="pickEyeBtn">Upload Eye Image</button>
+                  <button type="button" class="btn btn--small btn--ghost" id="restoreEyeBtn">Restore Default</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Section 3: Main Event Title & Hero Background -->
+          <fieldset class="custom-group">
+            <legend class="custom-group__title">3. Event Title & Hero Striker</legend>
+            <div class="form-grid">
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpTitleLead">Lead Header</label>
+                  <span class="char-count" id="countTitleLead">0/24</span>
+                </div>
+                <input class="form-input" id="inpTitleLead" type="text" maxlength="24" placeholder="e.g. YOU'RE INVITED TO">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpTitleName">Host / Birthday Name</label>
+                  <span class="char-count" id="countTitleName">0/12</span>
+                </div>
+                <input class="form-input" id="inpTitleName" type="text" maxlength="12" placeholder="e.g. SEAN'S">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpTitleAgeNum">Age Number</label>
+                  <span class="char-count" id="countTitleAgeNum">0/4</span>
+                </div>
+                <input class="form-input" id="inpTitleAgeNum" type="text" maxlength="4" placeholder="e.g. 12">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpTitleAgeSup">Age Suffix</label>
+                  <span class="char-count" id="countTitleAgeSup">0/3</span>
+                </div>
+                <input class="form-input" id="inpTitleAgeSup" type="text" maxlength="3" placeholder="e.g. TH">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpTitleEvent">Event Name</label>
+                  <span class="char-count" id="countTitleEvent">0/14</span>
+                </div>
+                <input class="form-input" id="inpTitleEvent" type="text" maxlength="14" placeholder="e.g. BIRTHDAY!">
+              </div>
+              <div class="form-field form-field--toggle">
+                <label class="toggle-label" for="toggleSfx">
+                  <input type="checkbox" id="toggleSfx" class="toggle-input" checked>
+                  <span class="toggle-slider"></span>
+                  <span class="toggle-text">Show Japanese Manga SFX (ゴゴゴ & ドンッ!)</span>
+                </label>
+              </div>
+              <div class="form-field form-field--span2">
+                <span class="form-field__label">Hero Striker Background Image</span>
+                <div class="form-file-row">
+                  <button type="button" class="btn btn--small" id="pickHeroBtn">Upload Background Image</button>
+                  <button type="button" class="btn btn--small btn--ghost" id="restoreHeroBtn">Restore Default</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Section 4: Match Info Badges -->
+          <fieldset class="custom-group">
+            <legend class="custom-group__title">4. Match Day Info Badges</legend>
+            <div class="form-grid">
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpInfoDate">Date Badge</label>
+                  <span class="char-count" id="countInfoDate">0/20</span>
+                </div>
+                <input class="form-input" id="inpInfoDate" type="text" maxlength="20" placeholder="e.g. NOV 11, 2026">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpInfoTime">Time Badge</label>
+                  <span class="char-count" id="countInfoTime">0/16</span>
+                </div>
+                <input class="form-input" id="inpInfoTime" type="text" maxlength="16" placeholder="e.g. 01:00 PM">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpInfoPhone">Phone / Hotline</label>
+                  <span class="char-count" id="countInfoPhone">0/20</span>
+                </div>
+                <input class="form-input" id="inpInfoPhone" type="text" maxlength="20" placeholder="e.g. (123) 456 7ABC">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpInfoLocation">Goal Location</label>
+                  <span class="char-count" id="countInfoLocation">0/28</span>
+                </div>
+                <input class="form-input" id="inpInfoLocation" type="text" maxlength="28" placeholder="e.g. CENTRAL PARK (NY)">
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Section 5: Footer Folio -->
+          <fieldset class="custom-group">
+            <legend class="custom-group__title">5. Card Footer (Folio)</legend>
+            <div class="form-grid">
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpFolioLeft">Left Folio</label>
+                  <span class="char-count" id="countFolioLeft">0/28</span>
+                </div>
+                <input class="form-input" id="inpFolioLeft" type="text" maxlength="28" placeholder="e.g. CH.12 — BIRTHDAY ARC">
+              </div>
+              <div class="form-field">
+                <div class="form-field__label-row">
+                  <label for="inpFolioRight">Right Folio</label>
+                  <span class="char-count" id="countFolioRight">0/22</span>
+                </div>
+                <input class="form-input" id="inpFolioRight" type="text" maxlength="22" placeholder="e.g. BLUE LOCK · EDITION">
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="modal__actions modal__actions--sticky">
+          <button type="button" class="btn btn--primary" id="applyCustomizeBtn">Apply Changes</button>
+          <button type="button" class="btn" id="cancelCustomizeBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Save/Share Modal (Fallback for WebViews & Long-press save) -->
+    <div class="modal no-export" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="modal__backdrop" id="modalBackdrop"></div>
+      <div class="modal__dialog">
+        <div class="modal__header">
+          <h2 class="modal__title" id="modalTitle">YOUR INVITATION IS READY</h2>
+          <button type="button" class="modal__close" id="modalCloseBtn" aria-label="Close">&times;</button>
+        </div>
+        <p class="modal__tip">💡 <strong>Mobile Tip:</strong> Tap and hold the image below, then select <strong>“Save Image”</strong> to save directly to your Photos.</p>
+        <div class="modal__preview">
+          <img id="modalPreviewImg" alt="Invitation preview" draggable="false">
+        </div>
+        <div class="modal__actions">
+          <button type="button" class="btn btn--primary" id="modalShareBtn">Share / Save Image</button>
+          <button type="button" class="btn btn--primary" id="modalDownloadBtn">Download PNG Again</button>
+          <button type="button" class="btn" id="modalDoneBtn">Close</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

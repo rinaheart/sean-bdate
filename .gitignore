@@ -1,0 +1,22 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / dependencies (if any added)
+node_modules/
+dist/
+package-lock.json
+
+# Test & temporary export artifacts
+*.log
+.test/
+__pycache__/
+*.pyc
+*.zip
