@@ -33,6 +33,10 @@ import eyePanelOff from "../assets/eye-panel-black.webp";
     titleAgeSup: "TH",
     titleEvent: "Birthday!",
     sfxVisible: true,
+    showBadgeDate: true,
+    showBadgeTime: true,
+    showBadgePhone: true,
+    showBadgeLocation: true,
     infoDate: "NOV 11, 2026",
     infoTime: "01:00 PM",
     infoPhone: "(123) 456 7ABC",
@@ -71,6 +75,10 @@ import eyePanelOff from "../assets/eye-panel-black.webp";
     titleAgeNum: $("titleAgeNum"),
     titleAgeSup: $("titleAgeSup"),
     titleEvent: $("titleEvent"),
+    badgeDate: $("badgeDate"),
+    badgeTime: $("badgeTime"),
+    badgePhone: $("badgePhone"),
+    badgeLocation: $("badgeLocation"),
     infoDateText: $("infoDateText"),
     infoTimeText: $("infoTimeText"),
     infoPhoneLink: $("infoPhoneLink"),
@@ -119,6 +127,10 @@ import eyePanelOff from "../assets/eye-panel-black.webp";
     toggleSfx: $("toggleSfx"),
     pickHeroBtn: $("pickHeroBtn"),
     restoreHeroBtn: $("restoreHeroBtn"),
+    toggleBadgeDate: $("toggleBadgeDate"),
+    toggleBadgeTime: $("toggleBadgeTime"),
+    toggleBadgePhone: $("toggleBadgePhone"),
+    toggleBadgeLocation: $("toggleBadgeLocation"),
     inpInfoDate: $("inpInfoDate"),
     inpInfoTime: $("inpInfoTime"),
     inpInfoPhone: $("inpInfoPhone"),
@@ -391,7 +403,12 @@ import eyePanelOff from "../assets/eye-panel-black.webp";
       }
     }
 
-    // 5. Info Badges
+    // 5. Info Badges Visibility & Content
+    if (el.badgeDate) el.badgeDate.classList.toggle("is-hidden", state.showBadgeDate === false);
+    if (el.badgeTime) el.badgeTime.classList.toggle("is-hidden", state.showBadgeTime === false);
+    if (el.badgePhone) el.badgePhone.classList.toggle("is-hidden", state.showBadgePhone === false);
+    if (el.badgeLocation) el.badgeLocation.classList.toggle("is-hidden", state.showBadgeLocation === false);
+
     if (el.infoDateText) el.infoDateText.textContent = state.infoDate || "NOV 11, 2026";
     if (el.infoTimeText) el.infoTimeText.textContent = state.infoTime || "01:00 PM";
     if (el.infoPhoneText) el.infoPhoneText.textContent = state.infoPhone || "(123) 456 7ABC";
@@ -493,6 +510,10 @@ import eyePanelOff from "../assets/eye-panel-black.webp";
     if (el.inpTitleAgeSup) el.inpTitleAgeSup.value = state.titleAgeSup || "";
     if (el.inpTitleEvent) el.inpTitleEvent.value = state.titleEvent || "";
     if (el.toggleSfx) el.toggleSfx.checked = state.sfxVisible !== false;
+    if (el.toggleBadgeDate) el.toggleBadgeDate.checked = state.showBadgeDate !== false;
+    if (el.toggleBadgeTime) el.toggleBadgeTime.checked = state.showBadgeTime !== false;
+    if (el.toggleBadgePhone) el.toggleBadgePhone.checked = state.showBadgePhone !== false;
+    if (el.toggleBadgeLocation) el.toggleBadgeLocation.checked = state.showBadgeLocation !== false;
     if (el.inpInfoDate) el.inpInfoDate.value = state.infoDate || "";
     if (el.inpInfoTime) el.inpInfoTime.value = state.infoTime || "";
     if (el.inpInfoPhone) el.inpInfoPhone.value = state.infoPhone || "";
@@ -546,6 +567,10 @@ import eyePanelOff from "../assets/eye-panel-black.webp";
     state.titleAgeSup = (el.inpTitleAgeSup?.value || "").trim().toUpperCase() || "TH";
     state.titleEvent = (el.inpTitleEvent?.value || "").trim() || "Birthday!";
     state.sfxVisible = !!el.toggleSfx?.checked;
+    state.showBadgeDate = !!el.toggleBadgeDate?.checked;
+    state.showBadgeTime = !!el.toggleBadgeTime?.checked;
+    state.showBadgePhone = !!el.toggleBadgePhone?.checked;
+    state.showBadgeLocation = !!el.toggleBadgeLocation?.checked;
     state.infoDate = (el.inpInfoDate?.value || "").trim().toUpperCase() || "NOV 11, 2026";
     state.infoTime = (el.inpInfoTime?.value || "").trim().toUpperCase() || "01:00 PM";
     state.infoPhone = (el.inpInfoPhone?.value || "").trim().toUpperCase() || "(123) 456 7ABC";

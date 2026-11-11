@@ -138,6 +138,10 @@ def run():
         count_vip = page.locator("#countVip").inner_text().strip()
         assert "/16" in count_vip, f"Expected /16 counter, got {count_vip}"
 
+        # Verify section mockup thumbnails exist
+        thumbs = page.locator(".custom-group__thumb")
+        assert thumbs.count() == 5, f"Expected 5 section mockup thumbnails, got {thumbs.count()}"
+
         # Edit fields
         page.locator("#inpVipText").fill("HONOR GUEST")
         page.locator("#inpHeyText").fill("YO")
@@ -153,8 +157,8 @@ def run():
         page.locator("#inpFolioLeft").fill("CH.1 — NEW ARC")
         page.locator("#inpFolioRight").fill("SPECIAL EDITION")
 
-        # Toggle Japanese SFX off
-        page.evaluate("() => { document.getElementById('toggleSfx').checked = false; }")
+        # Toggle Japanese SFX off and toggle Phone badge off
+        page.evaluate("() => { document.getElementById('toggleSfx').checked = false; document.getElementById('toggleBadgePhone').checked = false; }")
 
         # Apply changes
         page.locator("#applyCustomizeBtn").click()
@@ -180,10 +184,18 @@ def run():
         assert page.locator("#sfxRumble").evaluate("el => el.classList.contains('is-hidden')")
         assert page.locator("#sfxImpact").evaluate("el => el.classList.contains('is-hidden')")
 
+        # Verify Phone badge hidden and other badges visible
+        assert page.locator("#badgePhone").evaluate("el => el.classList.contains('is-hidden')")
+        assert not page.locator("#badgeDate").evaluate("el => el.classList.contains('is-hidden')")
+        assert not page.locator("#badgeTime").evaluate("el => el.classList.contains('is-hidden')")
+        assert not page.locator("#badgeLocation").evaluate("el => el.classList.contains('is-hidden')")
+
         # Verify localStorage persistence of custom fields
         saved_title = page.evaluate("() => JSON.parse(localStorage.getItem('sean-invite:v2')).titleName")
         assert saved_title == "ALEX", f"Expected saved titleName 'ALEX', got '{saved_title}'"
-        print("  ✓ 7. Full Card Customize modal, fields edit, SFX toggle & persistence verified")
+        saved_show_phone = page.evaluate("() => JSON.parse(localStorage.getItem('sean-invite:v2')).showBadgePhone")
+        assert saved_show_phone is False, "Expected saved showBadgePhone to be False"
+        print("  ✓ 7. Full Card Customize modal, fields edit, SFX toggle, badge visibility & persistence verified")
 
         # 8. Reset to Default
         page.locator("#resetBtn").click()
@@ -195,6 +207,7 @@ def run():
         assert page.locator("#titleName").inner_text().strip() == "SEAN'S"
         assert page.locator("#infoDateText").inner_text().strip() == "NOV 11, 2026"
         assert not page.locator("#sfxRumble").evaluate("el => el.classList.contains('is-hidden')")
+        assert not page.locator("#badgePhone").evaluate("el => el.classList.contains('is-hidden')")
         reset_avatar_src = page.locator("#avatarImg").get_attribute("src")
         assert "avatar-default" in reset_avatar_src, f"Expected default avatar, got '{reset_avatar_src}'"
         print("  ✓ 8. Reset to default button verified")
